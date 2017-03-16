@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{5C2EB055-D8F9-4C57-B5D7-FAE578A2FBD9}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CPCourseworkMeetApp/CoordinatesCalculatorActivity.cs">
+    <Files>
+      <File FileName="CPCourseworkMeetApp/HomeScreenActivity.cs" Line="1" Column="1" />
+      <File FileName="CPCourseworkMeetApp/CoordinatesCalculatorActivity.cs" Line="1" Column="1" />
+      <File FileName="CPCourseworkMeetApp/CoordinatesCalculatedActivity.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CPCourseworkMeetApp AndroidDesignerPreferredDevice="Nexus 5" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
+</Properties>

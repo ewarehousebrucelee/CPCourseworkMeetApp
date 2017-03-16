@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:background="#2c3e50"
+    android:id="@+id/linearLayout1"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <WebView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/webLoadingIcon"
+        android:layout_width="138.5dp"
+        android:layout_height="136.0dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#00000000"
+        tools:visibility="gone" />
+    <TextView xmlns:tools="http://schemas.android.com/tools"
+        android:text="The geographical midpoint of your locations is..."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="65.0dp"
+        android:id="@+id/TheMidpointIs...TextView"
+        android:layout_marginBottom="24.5dp"
+        android:textSize="20dp"
+        tools:visibility="visible"
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
+    <TextView xmlns:tools="http://schemas.android.com/tools"
+        android:text="COORDINATES"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CoordinatesCalculatedCoordinatesTextView"
+        tools:visibility="visible"
+        android:gravity="center_horizontal" />
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/relativeLayout1">
+    <Button
+        p1:text="Calculate Coordinates"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/buttonCalculateCoords"
+        p1:layout_alignParentBottom="true" />
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="match_parent"
+        p1:layout_above="@id/buttonCalculateCoords"
+        p1:id="@+id/linearLayout1">
+        <ImageView
+            p1:src="@drawable/sat2"
+            p1:layout_width="match_parent"
+            p1:id="@+id/imageView1"
+            p1:layout_height="200dp"
+            p1:scaleType="centerCrop" />
+        <TextView
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content"
+            p1:layout_marginTop="10dip"
+            p1:text="Choose some friends"
+            p1:textSize="30dp" />
+        <Spinner
+            p1:id="@+id/spinnerFriends1"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content" />
+        <Spinner
+            p1:id="@+id/spinnerFriends2"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content" />
+        <Spinner
+            p1:id="@+id/spinnerFriends3"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content" />
+        <Spinner
+            p1:id="@+id/spinnerFriends4"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content" />
+        <Spinner
+            p1:id="@+id/spinnerFriends5"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
