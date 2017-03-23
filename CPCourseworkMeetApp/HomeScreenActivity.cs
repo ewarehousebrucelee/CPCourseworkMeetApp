@@ -36,7 +36,7 @@ namespace CPCourseworkMeetApp
 		static double lat, lon;
 		OpenWeatherMap openWeatherMap = new OpenWeatherMap();
 
-		TextView _mainTextView;
+		//TextView _mainTextView;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -73,7 +73,7 @@ namespace CPCourseworkMeetApp
 
 			_leftItems.Add("Contacts");
 			_leftItems.Add("Midpoint Calculator");
-			_leftItems.Add("Element 3");
+			_leftItems.Add("Edit Profile");
 
 			_DrawerToggle = new HomescreenActionBarDrawerToggle(this, _DrawerLayout, Resource.Drawable.ic_drawer, Resource.String.open_drawer, Resource.String.close_drawer);
 			          
@@ -104,7 +104,7 @@ namespace CPCourseworkMeetApp
 
 					break;
 				case 3:
-					Toast.MakeText(this, "Element 3", ToastLength.Long).Show();
+					Toast.MakeText(this, "Edit Profile", ToastLength.Long).Show();
 					break;
 			}
 

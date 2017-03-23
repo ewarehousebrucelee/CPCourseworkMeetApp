@@ -34,4 +34,14 @@
         android:id="@+id/CoordinatesCalculatedCoordinatesTextView"
         tools:visibility="visible"
         android:gravity="center_horizontal" />
+    <fragment
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="329.7dp"
+        android:id="@+id/fragmentMap" />
+    <Button
+        android:text="Next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonGoToPlacePicker" />
 </LinearLayout>

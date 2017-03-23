@@ -34,16 +34,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewNewEmail"
         android:paddingTop="40dp"
-        android:text="ENTER YOUR EMAIL ADDRESS:" />
+        android:text="ENTER A PASSWORD:" />
     <EditText
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/editTextNewEmail"
         android:layout_gravity="center"
-        android:text="**Out of service**" />
+        android:text="" />
     <TextView
-        android:text="ENTER A PASSWORD:"
+        android:text="RENTER YOUR PASSWORD:"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -16,6 +16,11 @@ namespace CPCourseworkMeetApp
 			double x = 0, y = 0, z = 0;
 			foreach (var geoCoordinate in geoCoordinates)
 			{
+				if (geoCoordinate.Latitude == 0.0 || geoCoordinate.Longitude == 0.0)
+				{
+					//Omit the empty coordinate
+					continue;
+				}
 				//Convert to radians
 				var latitude = geoCoordinate.Latitude * Math.PI / 180;
 				var longitude = geoCoordinate.Longitude * Math.PI / 180;

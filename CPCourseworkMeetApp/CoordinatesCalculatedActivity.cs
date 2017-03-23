@@ -14,11 +14,15 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using System.Device.Location;
+using Android.Locations;
+using System.Threading.Tasks;
+using Android.Gms.Maps;
+using Android.Gms.Maps.Model;
 
 namespace CPCourseworkMeetApp
 {
 	[Activity(Label = "CoordinatesCalculatedActivity")]
-	public class CoordinatesCalculatedActivity : Activity
+	public class CoordinatesCalculatedActivity : Activity, IOnMapReadyCallback
 	{
 		public GeoCoordinate coord1;
 		public GeoCoordinate coord2;
@@ -29,7 +33,15 @@ namespace CPCourseworkMeetApp
 		public TextView midpointCoordinatesTextView;
 		public TextView titleText;
 
+		Button nextButton;
+
+		public GeoCoordinate geomidpoint;
+		public Address addressMidpoint;
+
 		public IList<GeoCoordinate> geoCoordinates;
+
+		private GoogleMap gMap;
+
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -40,11 +52,24 @@ namespace CPCourseworkMeetApp
 			midpointCoordinatesTextView = FindViewById<TextView>(Resource.Id.CoordinatesCalculatedCoordinatesTextView);
 			titleText = FindViewById<TextView>(Resource.Id.TheMidpointIs___TextView);
 
-
 			RunGifAnimation();
 			GetCoordinates();
-			CalculateMidpoint();
+			midpointCoordinatesTextView.Text = Convert.ToString(CalculateMidpoint());
 
+			SetupMap();
+
+			nextButton = FindViewById<Button>(Resource.Id.buttonGoToPlacePicker);
+
+			nextButton.Click += NextButton_Click;
+
+		}
+
+		void NextButton_Click(object sender, EventArgs e)
+		{
+			//Start Placepicker activity, sending across the geomidpoint
+			var PlacePickerNewIntent = new Intent(Application.Context, typeof(PickAPlaceActivity));
+			PlacePickerNewIntent.PutExtra("coordinates", JsonConvert.SerializeObject(geomidpoint));
+			StartActivity(PlacePickerNewIntent);
 		}
 
 		public void RunGifAnimation()
@@ -68,10 +93,11 @@ namespace CPCourseworkMeetApp
 			h.PostDelayed(closeGif, 5000);
 		}
 
-		public void CalculateMidpoint()
+		public GeoCoordinate CalculateMidpoint()
 		{
-			var midpoint = GeoMidPoint.GetCentralGeoCoordinate(geoCoordinates);
-			midpointCoordinatesTextView.Text = Convert.ToString(midpoint);
+			//Calculate and return geomidpoint
+			geomidpoint = GeoMidPoint.GetCentralGeoCoordinate(geoCoordinates);
+			return geomidpoint;
 
 
 		}
@@ -93,11 +119,33 @@ namespace CPCourseworkMeetApp
 			geoCoordinates.Add(coord5);
 
 			Console.WriteLine(geoCoordinates);
-
 		}
 
+		void SetupMap()
+		{
+			if (gMap == null)
+			{
+				FragmentManager.FindFragmentById<MapFragment>(Resource.Id.fragmentMap).GetMapAsync(this);
+			}
+		}
 
+		public void OnMapReady(GoogleMap googleMap)
+		{
+			gMap = googleMap;
+			LatLng nGeomidpoint = new LatLng(geomidpoint.Latitude, geomidpoint.Longitude);
 
+			//Move and zoom camera to midpoint
+			CameraUpdate midCamera = CameraUpdateFactory.NewLatLngZoom(nGeomidpoint, 10);
+			gMap.MoveCamera(midCamera);
+
+			//Create midpoint marker
+			MarkerOptions midOptions = new MarkerOptions();
+			midOptions.SetPosition(nGeomidpoint);
+			midOptions.SetTitle("Your Geographical Midpoint");
+			midOptions.SetSnippet("Get directions in the bottom right corner");
+			gMap.AddMarker(midOptions);
+
+		}
 	}
 }
 
